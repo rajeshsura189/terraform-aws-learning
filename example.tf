@@ -29,7 +29,6 @@ module "example" {
   module "security-groups" {
     source = "../Day_1_VPC_SG/security-groups"
     vpc_id = module.vpc.vpc_id
-    // Provide input variable values here
   }
 
 }
