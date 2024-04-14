@@ -7,7 +7,7 @@ provider "aws" {
 
 #create VPC `
 module "vpc" {
-  source                       = "../modules/vpc"
+  source                       = "/Terraform_Learning/Day_1_VPC_SG/vpc/"
   region                       = var.region
   project_name                 = var.project_name
   vpc_cidr                     = var.vpc_cidr
@@ -21,7 +21,7 @@ module "vpc" {
 }
 
 module "nat_gateway" {
-  source                     = "/Terraform_Learning/"
+  source                     = "/Terraform_Learning/Day_1_VPC_SG/nat_gateway"
   public_subnet_az1_id       = module.vpc.public_subnet_az1_id
   public_subnet_az2_id       = module.vpc.public_subnet_az2_id
   vpc_id                     = module.vpc.vpc_id
@@ -33,6 +33,6 @@ module "nat_gateway" {
 }
 
 module "security-groups" {
-  source = "../modules/security-groups"
+  source = "/Terraform_Learning/Day_1_VPC_SG/security-groups"
   vpc_id = module.vpc.vpc_id
 }
