@@ -1,4 +1,4 @@
-module "example" {
+module "example" { 
   source = "github.com/Ingole712521/vpc"
   module "vpc" {
     source                       = "../Day_1_VPC_SG/vpc"
